@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import Root from './root.vue'
 
 Root.install = function(Vue) {

@@ -1,12 +1,13 @@
 <template>
 	<label class="vue-codica-toggle">
-		<span class="label">
-			<span>{{label.text}}</span>
+		<span class="label" v-if="labelText.length">
+			<span>{{labelText}}</span>
 		</span>
+		<slot name="label"></slot>
 		<input
 				v-model="model"
 				@change="handleChange" type="checkbox">
-		<div class="toggle" :class="{ 'toggle--checked': model, 'toggle--unchecked': !model }"></div>
+		<div class="toggle" :class="[{ 'toggle--checked': model, 'toggle--unchecked': !model }, addBEMclass]"></div>
 	</label>
 </template>
 
@@ -14,6 +15,11 @@
 	export default {
 		name: "toggle",
 		props: {
+			styled: {
+				type: Array,
+				require: false,
+				default: () => []
+			},
 			value: {
 				type: Boolean,
 				require: true,
@@ -31,6 +37,15 @@
 			}
 		},
 		computed: {
+			labelText() {
+				if (this.value && this.label.activeText) {
+					return this.label.activeText
+				} else if (!this.value && this.label.inActiveText) {
+					return this.label.inActiveText
+				} else {
+					return this.label.defaultText || ''
+				}
+			},
 			model: {
 				get() {
 					return this.value
@@ -38,6 +53,9 @@
 				set(ev) {
 					this.$emit('input', ev)
 				}
+			},
+			addBEMclass() {
+				return this.styled.map(item => { return `toggle--${item}` })
 			}
 		},
 		methods: {
@@ -98,6 +116,22 @@
 			}
 			&.toggle--checked {
 				background-color: #aaa;
+				&:after {
+					background-color: #cccccc;
+				}
+			}
+			&.toggle--bold {
+				height: 26px;
+				width: 51px;
+				&:after {
+					left: 22px;
+					top: 3px;
+				}
+			}
+			&.toggle--checked.toggle--bold {
+				&:after {
+					left: 44px;
+				}
 			}
 		}
 	}
