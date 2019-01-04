@@ -75,10 +75,10 @@
 		margin: 5px;
 		outline: none;
 		&:focus input[type=checkbox]+.toggle {
-			box-shadow: 0 0 6px $primary-invert;
+			box-shadow: 0 0 12px $primary-invert;
 		}
 		&:focus input[type=checkbox]:checked+.toggle {
-			box-shadow: 0 0 6px $primary;
+			box-shadow: 0 0 12px $primary;
 		}
 		input {
 			display: none;
