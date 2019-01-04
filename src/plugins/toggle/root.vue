@@ -1,5 +1,5 @@
 <template>
-	<label class="vue-codica-toggle">
+	<label tabindex="0" class="vue-codica-toggle">
 		<span class="label" v-if="labelText.length">
 			<span>{{labelText}}</span>
 		</span>
@@ -67,10 +67,19 @@
 </script>
 
 <style lang="scss" scoped>
+	@import '~@/styles/_variables';
+
 	.vue-codica-toggle{
 		position: relative;
 		display: inline-block;
 		margin: 5px;
+		outline: none;
+		&:focus input[type=checkbox]+.toggle {
+			box-shadow: 0 0 6px $primary-invert;
+		}
+		&:focus input[type=checkbox]:checked+.toggle {
+			box-shadow: 0 0 6px $primary;
+		}
 		input {
 			display: none;
 		}
@@ -103,21 +112,20 @@
 				cursor: pointer;
 				top: -3px;
 				box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
-				background-color: #9d9d9d;
-
+				background: #fff;
 			}
 			&.toggle--unchecked {
 				justify-content: flex-end;
-				background-color: #dadada;
+				background-color: $primary-invert;
 				&:after {
 					left: 15px;
-					background-color: #b3b3b3;
+					background-color: $primary;
 				}
 			}
 			&.toggle--checked {
-				background-color: #aaa;
+				background-color: $primary;
 				&:after {
-					background-color: #cccccc;
+					background-color: $primary-invert;
 				}
 			}
 			&.toggle--bold {
@@ -126,6 +134,7 @@
 				&:after {
 					left: 22px;
 					top: 3px;
+					background: #fff;
 				}
 			}
 			&.toggle--checked.toggle--bold {
