@@ -1,10 +1,14 @@
 import Toggle from './toggle/index'
+import Input from './input/index'
+import Field from './field/index'
 
 const components = [
-	Toggle
+	Toggle,
+	Input,
+	Field
 ]
 
-const install = function(Vue) {
+const install = (Vue) => {
 	components.forEach(component => {
 		Vue.component(component.name, component)
 	})

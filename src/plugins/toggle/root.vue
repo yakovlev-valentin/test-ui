@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: "toggle",
+		name: "codica-toggle",
 		props: {
 			styled: {
 				type: Array,
