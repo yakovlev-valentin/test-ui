@@ -1,6 +1,6 @@
 <template>
   <section style="width: 500px; margin: auto">
-	  <!--<btn-toggle></btn-toggle>-->
+	  <btn-toggle></btn-toggle>
 	  <inpt></inpt>
   </section>
 </template>
