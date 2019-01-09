@@ -1,6 +1,6 @@
 {
   "name": "vui-codica",
-  "version": "0.1.4-1",
+  "version": "0.1.4-2",
   "private": false,
   "main": "dist/vui-codica.umd.js",
   "unpkg": "dist/vui-codica.common.js",
