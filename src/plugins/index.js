@@ -2,19 +2,30 @@ import Toggle from './toggle/index'
 import Input from './input/index'
 import Field from './field/index'
 
+import { use, registerComponentProgrammatic } from '../utils/plugins'
+
 const components = [
 	Toggle,
 	Input,
 	Field
 ]
 
-const install = (Vue) => {
-	components.forEach(component => {
-		Vue.component(component.name, component)
-	})
-	if (typeof window !== 'undefined' && window.Vue) {
-		install(window.Vue);
+const VuiCodica = {
+	install(Vue, options = {}) {
+		for (let componentKey in components) {
+			Vue.use(components[componentKey])
+		}
+		registerComponentProgrammatic(Vue, '$vui')
 	}
 }
 
-export default install
+// const install = (Vue) => {
+// 	components.forEach(component => {
+// 		Vue.component(component.name, component)
+// 	})
+// 	if (typeof window !== 'undefined' && window.Vue) {
+// 		install(window.Vue);
+// 	}
+// }
+use(VuiCodica)
+export default VuiCodica
