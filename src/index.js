@@ -1,8 +1,8 @@
-import Toggle from './toggle/index'
-import Input from './input/index'
-import Field from './field/index'
+import Toggle from './plugins/toggle'
+import Input from './plugins/input'
+import Field from './plugins/field'
 
-import { use, registerComponentProgrammatic } from '../utils/plugins'
+import { use, registerComponentProgrammatic } from './utils/plugins'
 
 const components = [
 	Toggle,
