@@ -2,8 +2,11 @@
 	<div>
 		<h1>Toggle buttons</h1>
 		<h2>Visual:</h2>
-		<codica-toggle :styled="['bold']" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
-		<codica-toggle v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
+		<codica-toggle disabled :styled="['bold']" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
+		<codica-toggle defaultClass="success" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
+		<codica-toggle defaultClass="warning" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
+		<codica-toggle defaultClass="danger" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
+		<codica-toggle defaultClass="info" v-model="status" :label="{ defaultText: 'Status' }"></codica-toggle>
 		<h2>Status text:</h2>
 		<codica-toggle :styled="['bold']" v-model="status" :label="{inActiveText: 'Inactive', activeText: 'Active' }"></codica-toggle>
 		<codica-toggle v-model="active" :label="{ inActiveText: 'Inactive', activeText: 'Active' }"></codica-toggle>

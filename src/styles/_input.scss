@@ -1,0 +1,49 @@
+@import './_variables.scss';
+.cu-input {
+  &:focus {
+    &.primary {
+      box-shadow: 0 0 0 0.125em rgba($primary, .25);
+      border-color: rgba($primary, 1);
+    }
+    &.success {
+      box-shadow: 0 0 0 0.125em rgba($success, .25);
+      border-color: rgba($success, 1);
+    }
+    &.warning {
+      box-shadow: 0 0 0 0.125em rgba($warning, .25);
+      border-color: rgba($warning, 1);
+    }
+    &.danger {
+      box-shadow: 0 0 0 0.125em rgba($danger, .25);
+      border-color: rgba($danger, 1);
+    }
+    &.info {
+      box-shadow: 0 0 0 0.125em rgba($info, .25);
+      border-color: rgba($info, 1);
+    }
+  }
+}
+textarea.cu-label {
+  &:focus {
+    &.primary {
+      box-shadow: 0 0 0 0.125em rgba($primary, .25);
+      border-color: rgba($primary, 1);
+    }
+    &.success {
+      box-shadow: 0 0 0 0.125em rgba($success, .25);
+      border-color: rgba($success, 1);
+    }
+    &.warning {
+      box-shadow: 0 0 0 0.125em rgba($warning, .25);
+      border-color: rgba($warning, 1);
+    }
+    &.danger {
+      box-shadow: 0 0 0 0.125em rgba($danger, .25);
+      border-color: rgba($danger, 1);
+    }
+    &.info {
+      box-shadow: 0 0 0 0.125em rgba($info, .25);
+      border-color: rgba($info, 1);
+    }
+  }
+}

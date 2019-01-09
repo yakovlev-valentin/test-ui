@@ -1,0 +1,150 @@
+.vue-codica-toggle {
+  &:focus input[type=checkbox]+.toggle.primary {
+    box-shadow: 0 0 12px $primary-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.primary {
+    box-shadow: 0 0 12px $primary;
+  }
+  .toggle{
+    &.toggle--checked.toggle--bold {
+      &:after {
+        left: 44px;
+      }
+    }
+    &.toggle--unchecked {
+      &:after {
+        left: 15px;
+      }
+    }
+    &.toggle--unchecked{
+      justify-content: flex-end;
+
+    }
+    &.toggle--unchecked.primary {
+      background-color: $primary-invert;
+      &:after {
+        background-color: $primary;
+      }
+    }
+    &.toggle--checked.primary {
+      background-color: $primary;
+      &:after {
+        background-color: $primary-invert;
+      }
+    }
+  }
+  &:focus input[type=checkbox]+.toggle.info {
+    box-shadow: 0 0 12px $info-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.info {
+    box-shadow: 0 0 12px $info;
+  }
+  .toggle{
+    &.toggle--unchecked.info {
+      background-color: $info-invert;
+      &:after {
+        background-color: $info;
+      }
+    }
+    &.toggle--checked.info {
+      background-color: $info;
+      &:after {
+        background-color: $info-invert;
+      }
+    }
+  }
+  &:focus input[type=checkbox]+.toggle.success {
+    box-shadow: 0 0 12px $success-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.success {
+    box-shadow: 0 0 12px $success;
+  }
+  .toggle{
+    &.toggle--unchecked.success {
+      background-color: $success-invert;
+      &:after {
+        background-color: $success;
+      }
+    }
+    &.toggle--checked.success {
+      background-color: $success;
+      &:after {
+        background-color: $success-invert;
+      }
+    }
+  }
+  &:focus input[type=checkbox]+.toggle.warning {
+    box-shadow: 0 0 12px $success-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.warning {
+    box-shadow: 0 0 12px $success;
+  }
+  .toggle{
+    &.toggle--unchecked.warning {
+      background-color: $warning-invert;
+      &:after {
+        background-color: $warning;
+      }
+    }
+    &.toggle--checked.warning {
+      background-color: $warning;
+      &:after {
+        background-color: $warning-invert;
+      }
+    }
+  }
+  &:focus input[type=checkbox]+.toggle.danger {
+    box-shadow: 0 0 12px $danger-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.danger {
+    box-shadow: 0 0 12px $danger;
+  }
+  .toggle{
+    &.toggle--unchecked.danger {
+      background-color: $danger-invert;
+      &:after {
+        background-color: $danger;
+      }
+    }
+    &.toggle--checked.danger {
+      background-color: $danger;
+      &:after {
+        background-color: $danger-invert;
+      }
+    }
+  }
+  &:focus input[type=checkbox]+.toggle.info {
+    box-shadow: 0 0 12px $info-invert;
+  }
+  &:focus input[type=checkbox]:checked+.toggle.info {
+    box-shadow: 0 0 12px $info;
+  }
+  .toggle{
+    &.toggle--unchecked.info {
+      background-color: $info-invert;
+      &:after {
+        background-color: $info;
+      }
+    }
+    &.toggle--checked.info {
+      background-color: $info;
+      &:after {
+        background-color: $info-invert;
+      }
+    }
+  }
+}
+
+.vue-codica-toggle {
+  .toggle{
+    &.toggle--bold {
+      height: 26px;
+      width: 51px;
+      &:after {
+        left: 22px;
+        top: 3px;
+        background: #fff;
+      }
+    }
+  }
+}

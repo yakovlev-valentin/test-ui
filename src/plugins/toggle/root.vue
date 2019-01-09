@@ -1,5 +1,5 @@
 <template>
-	<label tabindex="0" class="vue-codica-toggle">
+	<label tabindex="0" class="vue-codica-toggle" :class="{ disabled: disabled }">
 		<span class="label" v-if="labelText.length">
 			<span>{{labelText}}</span>
 		</span>
@@ -7,7 +7,7 @@
 		<input
 				v-model="model"
 				@change="handleChange" type="checkbox">
-		<div class="toggle" :class="[{ 'toggle--checked': model, 'toggle--unchecked': !model }, addBEMclass]"></div>
+		<div class="toggle" :class="[{ 'toggle--checked': model, 'toggle--unchecked': !model }, addBEMclass, defaultClass, { disabled: disabled }]"></div>
 	</label>
 </template>
 
@@ -15,6 +15,11 @@
 	export default {
 		name: "codica-toggle",
 		props: {
+			disabled: {
+				type: Boolean,
+				require: false,
+				default: false
+			},
 			styled: {
 				type: Array,
 				require: false,
@@ -34,6 +39,11 @@
 				type: Object,
 				require: false,
 				default: () => { return {}}
+			},
+			defaultClass: {
+				type: String,
+				require: false,
+				default: 'primary'
 			}
 		},
 		computed: {
@@ -51,6 +61,7 @@
 					return this.value
 				},
 				set(ev) {
+					if (this.disabled) return false
 					this.$emit('input', ev)
 				}
 			},
@@ -60,6 +71,7 @@
 		},
 		methods: {
 			handleChange(ev) {
+				if (this.disabled) return false
 				this.$emit('change', ev.target.value)
 			}
 		}
@@ -74,11 +86,8 @@
 		display: inline-block;
 		margin: 5px;
 		outline: none;
-		&:focus input[type=checkbox]+.toggle {
-			box-shadow: 0 0 12px $primary-invert;
-		}
-		&:focus input[type=checkbox]:checked+.toggle {
-			box-shadow: 0 0 12px $primary;
+		&.disabled {
+			cursor: not-allowed;
 		}
 		input {
 			display: none;
@@ -87,6 +96,12 @@
 			display: block;
 			font-size: 10px;
 			margin-bottom: 5px;
+		}
+		&:focus input[type=checkbox]+.toggle.disabled {
+			box-shadow: 0 0 12px $info !important;
+		}
+		&:focus input[type=checkbox]:checked+.toggle.disabled {
+			box-shadow: 0 0 12px $info-invert !important;
 		}
 		.toggle{
 			height: 15px;
@@ -99,6 +114,14 @@
 			justify-content: flex-start;
 			cursor: pointer;
 			transition: .2s linear,background-color .2s linear;
+			&.disabled {
+				background: $info !important;
+				cursor: not-allowed;
+				&:after {
+					cursor: not-allowed;
+					background: $info-invert !important;
+				}
+			}
 			&:after {
 				content: "";
 				height: 20px;
@@ -113,34 +136,6 @@
 				top: -3px;
 				box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
 				background: #fff;
-			}
-			&.toggle--unchecked {
-				justify-content: flex-end;
-				background-color: $primary-invert;
-				&:after {
-					left: 15px;
-					background-color: $primary;
-				}
-			}
-			&.toggle--checked {
-				background-color: $primary;
-				&:after {
-					background-color: $primary-invert;
-				}
-			}
-			&.toggle--bold {
-				height: 26px;
-				width: 51px;
-				&:after {
-					left: 22px;
-					top: 3px;
-					background: #fff;
-				}
-			}
-			&.toggle--checked.toggle--bold {
-				&:after {
-					left: 44px;
-				}
 			}
 		}
 	}

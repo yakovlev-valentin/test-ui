@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import UI from './plugins'
 import '@mdi/font/scss/materialdesignicons.scss'
-import '@/styles/_variables.scss'
+import '@/styles/index.scss'
 Vue.use(UI)
 
 Vue.config.productionTip = false

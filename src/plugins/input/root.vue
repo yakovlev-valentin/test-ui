@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<textarea :class="{ 'cu-focus': focus }" :placeholder="placeholder" class="cu-label" v-if="type === 'textarea'" cols="30" rows="10"></textarea>
+		<textarea :class="[{ 'cu-focus': focus }, defaultClass]" :placeholder="placeholder" class="cu-label" v-if="type === 'textarea'" cols="30" rows="10"></textarea>
 		<div v-else class="cu-label">
 			<input v-model="data"
-			       :class="{ 'cu-focus': focus }"
+			       :class="[{ 'cu-focus': focus }, defaultClass]"
 			       @input="handleInput"
 			       @blur="handleBlur"
 			       @focus="handleFocus"
@@ -24,6 +24,11 @@
 	export default {
 		name: 'codica-input',
 		props: {
+			defaultClass: {
+				type: String,
+				default: 'primary',
+				require: false
+			},
 			label: {
 				type: String,
 				default: '',
@@ -98,8 +103,8 @@
 		line-height: 24px;
 		font-size: 16px;
 		transition: none 0s ease 0s;
-		margin-top: 0px;
-		margin-bottom: 0px;
+		margin-top: 0;
+		margin-bottom: 0;
 		height: 120px;
 		background-color: #fff;
 		border-color: #dbdbdb;
@@ -107,6 +112,10 @@
 		box-shadow: inset 0 1px 2px hsla(0, 0%, 4%, .1);
 		padding: .625em;
 		border-radius: 4px;
+		outline: none;
+		max-width: 100%;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	.cu-label {
 		position: relative;
@@ -131,7 +140,7 @@
 			box-sizing: border-box;
 			color: #80868b;
 			left: 8px;
-			padding: 0 8px;
+			margin: 0 8px;
 			transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
 			width: auto;
 			&.text--raised {
