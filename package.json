@@ -1,6 +1,6 @@
 {
   "name": "vue-codica-toggle",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "main": "dist/vui-codica.umd.js",
   "unpkg": "dist/vui-codica.common.js",
